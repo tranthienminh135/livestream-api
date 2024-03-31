@@ -1,5 +1,6 @@
 package com.phuong.livestreamapi.controller;
 
+import com.phuong.livestreamapi.dto.CustomerDto;
 import com.phuong.livestreamapi.dto.RequestDto;
 import com.phuong.livestreamapi.model.Customer;
 import com.phuong.livestreamapi.service.ICustomerService;
@@ -21,5 +22,23 @@ public class CustomerController {
     public ResponseEntity<?> getAllCustomer(@RequestBody RequestDto requestDto) {
         Page<Customer> customers = this.customerService.getAllPage(requestDto);
         return new ResponseEntity<>(customers, HttpStatus.OK);
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<?> saveCustomer(@RequestBody CustomerDto customerDto) {
+        this.customerService.save(customerDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/get")
+    public ResponseEntity<?> findCustomerById(@RequestBody CustomerDto customerDto) {
+        Customer customer = this.customerService.findById(customerDto.getId());
+        return new ResponseEntity<>(customer,HttpStatus.OK);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<?> deleteCustomer(@RequestBody CustomerDto customerDto) {
+        this.customerService.deleteCustomer(customerDto.getId());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

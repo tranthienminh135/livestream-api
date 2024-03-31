@@ -1,7 +1,5 @@
 package com.phuong.livestreamapi.dto;
 
-import com.phuong.livestreamapi.model.CustomerPosition;
-import com.phuong.livestreamapi.model.CustomerStatus;
 import lombok.Data;
 
 @Data
@@ -18,7 +16,7 @@ public class CustomerDto {
 
     private String description;
 
-    private CustomerPosition customerPosition;
+    private Integer positionId;
 
-    private CustomerStatus customerStatus;
+    private Integer statusId;
 }
