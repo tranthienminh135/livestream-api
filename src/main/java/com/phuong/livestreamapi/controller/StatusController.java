@@ -1,7 +1,6 @@
 package com.phuong.livestreamapi.controller;
 
-import com.phuong.livestreamapi.model.CustomerPosition;
-import com.phuong.livestreamapi.model.CustomerStatus;
+import com.phuong.livestreamapi.model.EmployeeStatus;
 import com.phuong.livestreamapi.repository.IStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ public class StatusController {
 
     @GetMapping("")
     public ResponseEntity<?> getAllPosition() {
-        List<CustomerStatus> customerPositions = this.statusRepository.findAll();
+        List<EmployeeStatus> customerPositions = this.statusRepository.findAll();
         return new ResponseEntity<>(customerPositions, HttpStatus.OK);
     }
 }

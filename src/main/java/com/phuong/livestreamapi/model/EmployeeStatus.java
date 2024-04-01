@@ -8,7 +8,8 @@ import java.util.List;
 
 @Data
 @Entity
-public class CustomerPosition {
+public class EmployeeStatus {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -16,6 +17,6 @@ public class CustomerPosition {
     private String name;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "customerPosition")
-    private List<Customer> customers;
+    @OneToMany(mappedBy = "employeeStatus")
+    private List<Employee> employees;
 }

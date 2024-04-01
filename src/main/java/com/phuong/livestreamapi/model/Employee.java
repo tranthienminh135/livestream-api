@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Customer {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -22,9 +22,9 @@ public class Customer {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id", name = "position_id")
-    private CustomerPosition customerPosition;
+    private EmployeePosition employeePosition;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id", name = "status_id")
-    private CustomerStatus customerStatus;
+    private EmployeeStatus employeeStatus;
 }

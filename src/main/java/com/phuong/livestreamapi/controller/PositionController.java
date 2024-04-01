@@ -1,6 +1,6 @@
 package com.phuong.livestreamapi.controller;
 
-import com.phuong.livestreamapi.model.CustomerPosition;
+import com.phuong.livestreamapi.model.EmployeePosition;
 import com.phuong.livestreamapi.repository.IPositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class PositionController {
 
     @GetMapping("")
     public ResponseEntity<?> getAllPosition() {
-        List<CustomerPosition> customerPositions = this.positionRepository.findAll();
-        return new ResponseEntity<>(customerPositions, HttpStatus.OK);
+        List<EmployeePosition> employeePositions = this.positionRepository.findAll();
+        return new ResponseEntity<>(employeePositions, HttpStatus.OK);
     }
 }
