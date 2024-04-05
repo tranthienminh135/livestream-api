@@ -10,7 +10,7 @@ public class CustomerDto {
 
     private String email;
 
-    private String avatar;
+    private byte[] avatar;
 
     private String title;
 
