@@ -14,7 +14,9 @@ public class Customer {
 
     private String email;
 
-    private String avatar;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] avatar;
 
     private String title;
 
