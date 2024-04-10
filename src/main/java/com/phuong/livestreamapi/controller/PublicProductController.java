@@ -1,13 +1,14 @@
 package com.phuong.livestreamapi.controller;
 
+import com.phuong.livestreamapi.dto.RequestDto;
 import com.phuong.livestreamapi.model.Product;
 import com.phuong.livestreamapi.repository.IProductRepository;
+import com.phuong.livestreamapi.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,9 +19,24 @@ public class PublicProductController {
     @Autowired
     private IProductRepository productRepository;
 
+    @Autowired
+    private IProductService productService;
+
     @GetMapping("8new")
     public ResponseEntity<?> get8NewProducts() {
         List<Product> products = this.productRepository.find8NewProducts();
         return new ResponseEntity<>(products,HttpStatus.OK);
+    }
+
+    @PostMapping("")
+    public ResponseEntity<?> getAllPageProduct(@RequestBody RequestDto requestDto) {
+        Page<Product> products = this.productService.getAllPage(requestDto);
+        return new ResponseEntity<>(products,HttpStatus.OK);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<?> getProductById(@PathVariable Integer id) {
+        Product product = this.productRepository.findById(id).get();
+        return new ResponseEntity<>(product,HttpStatus.OK);
     }
 }

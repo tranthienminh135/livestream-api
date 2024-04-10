@@ -20,6 +20,8 @@ public class Product {
 
     private String description;
 
+    private Integer quantity;
+
     private Date createdDate;
 
     @Lob

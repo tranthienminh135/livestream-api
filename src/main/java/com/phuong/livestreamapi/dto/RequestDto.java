@@ -15,10 +15,4 @@ public class RequestDto {
 
     private String name;
 
-    private String email;
-
-    private Integer statusId;
-
-    private Integer positionId;
-
 }

@@ -22,6 +22,12 @@ public class AppUser {
     @Column(nullable = false)
     private String fullName;
 
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] avatar;
+
+    private String phoneNumber;
+
     @Column(unique = true, nullable = false)
     private String username;
 
