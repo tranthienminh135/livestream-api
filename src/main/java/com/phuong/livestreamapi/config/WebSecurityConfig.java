@@ -52,7 +52,7 @@ public class WebSecurityConfig {
 
     Environment env;
 
-    private final String[] PUBLIC_URL = {"/register", "/api/**", "/login"};
+    private final String[] PUBLIC_URL = {"/register", "/public/**", "/login"};
     private final String[] IGNORE_URL = {};
 
     @Autowired

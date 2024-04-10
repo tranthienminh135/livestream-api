@@ -6,6 +6,8 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import jakarta.persistence.*;
+
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -30,6 +32,9 @@ public class AppUser {
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private AppRole appRole;
+
+    @OneToMany(mappedBy = "appUser")
+    private List<ProductOrder> productOrders;
 
     @Override
     public boolean equals(Object o) {

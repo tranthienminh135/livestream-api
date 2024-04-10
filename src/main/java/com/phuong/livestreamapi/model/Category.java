@@ -6,9 +6,9 @@ import lombok.Data;
 
 import java.util.List;
 
-@Data
 @Entity
-public class CustomerStatus {
+@Data
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,12 @@ public class CustomerStatus {
 
     private String name;
 
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] cover;
+
+
     @JsonBackReference
-    @OneToMany(mappedBy = "customerStatus")
-    private List<Customer> customers;
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }
