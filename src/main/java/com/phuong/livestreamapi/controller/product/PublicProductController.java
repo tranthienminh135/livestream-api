@@ -1,4 +1,4 @@
-package com.phuong.livestreamapi.controller;
+package com.phuong.livestreamapi.controller.product;
 
 import com.phuong.livestreamapi.dto.RequestDto;
 import com.phuong.livestreamapi.model.Product;
@@ -36,7 +36,7 @@ public class PublicProductController {
 
     @GetMapping("{id}")
     public ResponseEntity<?> getProductById(@PathVariable Integer id) {
-        Product product = this.productRepository.findById(id).get();
+        Product product = this.productRepository.findById(id).orElse(new Product());
         return new ResponseEntity<>(product,HttpStatus.OK);
     }
 }

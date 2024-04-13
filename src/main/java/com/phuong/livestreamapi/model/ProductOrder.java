@@ -3,6 +3,8 @@ package com.phuong.livestreamapi.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Date;
+
 @Entity
 @Data
 public class ProductOrder {
@@ -11,7 +13,9 @@ public class ProductOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer quality;
+    private Integer quantity;
+
+    private Date orderDate;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")

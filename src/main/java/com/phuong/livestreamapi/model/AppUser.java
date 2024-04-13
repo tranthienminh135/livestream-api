@@ -1,6 +1,5 @@
 package com.phuong.livestreamapi.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -38,9 +37,6 @@ public class AppUser {
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private AppRole appRole;
-
-    @OneToMany(mappedBy = "appUser")
-    private List<ProductOrder> productOrders;
 
     @Override
     public boolean equals(Object o) {

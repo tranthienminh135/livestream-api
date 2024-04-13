@@ -1,5 +1,6 @@
 package com.phuong.livestreamapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -27,9 +28,6 @@ public class Product {
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] cover;
-
-    @OneToMany(mappedBy = "product")
-    private List<ProductOrder> productOrders;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")

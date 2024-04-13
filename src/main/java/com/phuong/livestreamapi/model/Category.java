@@ -1,6 +1,7 @@
 package com.phuong.livestreamapi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,9 +20,4 @@ public class Category {
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] cover;
-
-
-    @JsonBackReference
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
 }

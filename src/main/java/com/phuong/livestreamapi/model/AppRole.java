@@ -20,10 +20,6 @@ public class AppRole {
     @Column(nullable = false, unique = true)
     private String roleName;
 
-    @OneToMany(mappedBy = "appRole")
-    @JsonIgnore
-    private List<AppUser> appUsers;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
