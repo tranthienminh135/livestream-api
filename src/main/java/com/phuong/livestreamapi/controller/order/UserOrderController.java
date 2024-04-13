@@ -23,8 +23,7 @@ public class UserOrderController {
 
     @PostMapping("")
     public ResponseEntity<?> addProductToCart(@RequestBody OrderDto orderDto, Principal principal) {
-        this.orderService.addToCart(orderDto, principal.getName());
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(this.orderService.addToCart(orderDto, principal.getName()), HttpStatus.OK);
     }
 
     @PostMapping("show")

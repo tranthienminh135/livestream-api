@@ -28,7 +28,7 @@ public class OrderService implements IOrderService {
     private IAppUserRepository appUserRepository;
 
     @Override
-    public void addToCart(OrderDto orderDto, String username) {
+    public List<ProductOrder> addToCart(OrderDto orderDto, String username) {
         Product product = this.productRepository.findById(orderDto.getProductId()).orElse(new Product());
         AppUser appUser = this.appUserRepository.getAppUserByUsername(username);
         ProductOrder productOrder = this.orderRepository.findOrderByUsernameAndProductId(username, product.getId());
@@ -49,6 +49,7 @@ public class OrderService implements IOrderService {
                 }
             }
         }
+        return this.orderRepository.findAll();
     }
 
     @Override
