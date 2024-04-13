@@ -14,4 +14,10 @@ public interface IOrderRepository extends JpaRepository<ProductOrder, Integer> {
 
     @Query(value = "select po from ProductOrder po where po.appUser.username = :#{#username} and po.bill.id is null")
     List<ProductOrder> getOrdersByUsername(@Param("username") String username);
+
+    @Query(value = "select po from ProductOrder po where po.appUser.username = :#{#username} and po.bill.id is null ")
+    List<ProductOrder> findAllByUsername(@Param("username") String username);
+
+    @Query(value = "select po from ProductOrder po where po.appUser.username = :#{#username} and po.bill.id is not null ")
+    List<ProductOrder> getOrderHistoryByUsername(String username);
 }

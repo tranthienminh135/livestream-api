@@ -1,5 +1,7 @@
 package com.phuong.livestreamapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,6 +18,14 @@ public class ProductOrder {
     private Integer quantity;
 
     private Date orderDate;
+
+    private Double currentPrice;
+
+    private String currentName;
+
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] currentCover;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")

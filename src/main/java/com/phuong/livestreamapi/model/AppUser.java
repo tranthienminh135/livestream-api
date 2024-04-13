@@ -33,6 +33,9 @@ public class AppUser {
     @JsonIgnore
     @Column(nullable = false)
     private String password;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String address;
     
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")

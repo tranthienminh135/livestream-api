@@ -15,8 +15,24 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String code;
+
     private Date orderDate;
 
-    @OneToMany(mappedBy = "bill")
-    private List<ProductOrder> productOrders;
+    private String messageToSeller;
+
+    private Double totalPrice;
+
+    private String currentAddress;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private PaymentStatus paymentStatus;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private OrderStatus orderStatus;
+
+//    @OneToMany(mappedBy = "bill")
+//    private List<ProductOrder> productOrders;
 }
