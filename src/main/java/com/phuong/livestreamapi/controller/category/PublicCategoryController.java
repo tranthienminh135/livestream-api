@@ -1,4 +1,4 @@
-package com.phuong.livestreamapi.controller;
+package com.phuong.livestreamapi.controller.category;
 
 import com.phuong.livestreamapi.model.Category;
 import com.phuong.livestreamapi.repository.ICategoryRepository;
@@ -21,6 +21,12 @@ public class PublicCategoryController {
     @GetMapping("")
     public ResponseEntity<?> getAllCategories() {
         List<Category> categories = this.ICategoryRepository.findAll();
+        return new ResponseEntity<>(categories,HttpStatus.OK);
+    }
+
+    @GetMapping("8rand")
+    public ResponseEntity<?> get8Categories() {
+        List<Category> categories = this.ICategoryRepository.find8Categories();
         return new ResponseEntity<>(categories,HttpStatus.OK);
     }
 }
