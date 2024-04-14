@@ -20,4 +20,9 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
             " where p.name like concat('%', :#{#requestDto.name} , '%') ")
     Page<Product> getAllPage(Pageable pageable,@Param("requestDto") RequestDto requestDto);
 
+    @Query(" select p from ProductOrder po join Product p on po.product.id = p.id where po.bill.id is not null order by po.quantity desc")
+    List<Product> find6PopularProducts();
+
+    @Query(" select p from Product p order by RAND()")
+    List<Product> find4RecommendedProducts();
 }

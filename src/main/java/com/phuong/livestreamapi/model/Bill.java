@@ -25,6 +25,8 @@ public class Bill {
 
     private String currentAddress;
 
+    private String currentPhoneNumber;
+
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private PaymentStatus paymentStatus;

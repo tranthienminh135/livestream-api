@@ -39,4 +39,16 @@ public class PublicProductController {
         Product product = this.productRepository.findById(id).orElse(new Product());
         return new ResponseEntity<>(product,HttpStatus.OK);
     }
+
+    @GetMapping("/popular")
+    public ResponseEntity<?> get6ProductsPopular() {
+        List<Product> products = this.productRepository.find6PopularProducts();
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    @GetMapping("/recommended")
+    public ResponseEntity<?> get6ProductsRecommended() {
+        List<Product> products = this.productRepository.find4RecommendedProducts();
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 }

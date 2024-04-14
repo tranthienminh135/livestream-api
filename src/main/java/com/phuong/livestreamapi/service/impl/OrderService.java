@@ -96,6 +96,7 @@ public class OrderService implements IOrderService {
         bill.setTotalPrice(totalPrice);
         bill.setMessageToSeller(paymentDto.getMessageToSeller());
         bill.setCurrentAddress(appUser.getAddress());
+        bill.setCurrentPhoneNumber(appUser.getPhoneNumber());
         OrderStatus orderStatus = new OrderStatus();
         orderStatus.setId(1);
         bill.setOrderStatus(orderStatus);
