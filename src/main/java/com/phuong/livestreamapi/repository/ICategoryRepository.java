@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ICategoryRepository extends JpaRepository<Category, Integer> {
 
-    @Query(value = " select c from Category c order by RAND() limit 8 ")
-    List<Category> find8Categories();
+    @Query(value = " select c from Category c order by RAND() limit 4 ")
+    List<Category> find4Categories();
 }

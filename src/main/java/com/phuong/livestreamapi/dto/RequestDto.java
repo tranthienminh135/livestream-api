@@ -15,4 +15,10 @@ public class RequestDto {
 
     private String name;
 
+    private Integer categoryId;
+
+    private Double priceFrom;
+
+    private Double priceTo;
+
 }

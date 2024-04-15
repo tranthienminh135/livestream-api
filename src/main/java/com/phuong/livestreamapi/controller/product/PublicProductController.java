@@ -51,4 +51,10 @@ public class PublicProductController {
         List<Product> products = this.productRepository.find4RecommendedProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
+
+    @GetMapping("/max-price")
+    public ResponseEntity<?> getMaxPriceProduct() {
+        Double price = this.productRepository.getMaxPriceProduct();
+        return new ResponseEntity<>(price, HttpStatus.OK);
+    }
 }

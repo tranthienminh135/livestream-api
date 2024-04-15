@@ -24,9 +24,9 @@ public class PublicCategoryController {
         return new ResponseEntity<>(categories,HttpStatus.OK);
     }
 
-    @GetMapping("8rand")
-    public ResponseEntity<?> get8Categories() {
-        List<Category> categories = this.ICategoryRepository.find8Categories();
+    @GetMapping("4rand")
+    public ResponseEntity<?> get4Categories() {
+        List<Category> categories = this.ICategoryRepository.find4Categories();
         return new ResponseEntity<>(categories,HttpStatus.OK);
     }
 }
