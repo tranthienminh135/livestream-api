@@ -1,14 +1,15 @@
 package com.phuong.livestreamapi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
 
-@Data
 @Entity
-public class CustomerStatus {
+@Data
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +17,7 @@ public class CustomerStatus {
 
     private String name;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "customerStatus")
-    private List<Customer> customers;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] cover;
 }

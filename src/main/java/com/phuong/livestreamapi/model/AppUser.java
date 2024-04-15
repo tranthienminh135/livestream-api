@@ -1,11 +1,12 @@
 package com.phuong.livestreamapi.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import jakarta.persistence.*;
+
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -20,12 +21,21 @@ public class AppUser {
     @Column(nullable = false)
     private String fullName;
 
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] avatar;
+
+    private String phoneNumber;
+
     @Column(unique = true, nullable = false)
     private String username;
 
     @JsonIgnore
     @Column(nullable = false)
     private String password;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String address;
     
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")

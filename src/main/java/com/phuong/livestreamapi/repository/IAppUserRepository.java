@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface IAppUserRepository extends JpaRepository<AppUser, Integer> {
 
-    @Query(value = " select au.id, au.username, au.full_name, au.password, au.role_id from app_user au where au.username = :username ", nativeQuery = true)
+    @Query(value = " select au.* from app_user au where au.username = :username ", nativeQuery = true)
     AppUser getAppUserByUsername(@Param("username") String username);
 
 }
