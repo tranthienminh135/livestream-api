@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("user")
@@ -22,5 +23,11 @@ public class UserController {
     @GetMapping("info")
     public ResponseEntity<?> getUserInfo(Principal principal) {
         return new ResponseEntity<>(this.appUserRepository.getAppUserByUsername(principal.getName()), HttpStatus.OK);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<?> getAllUser(Principal principal) {
+        List<AppUser> appUsers = this.appUserRepository.getAllUser(principal.getName());
+        return new ResponseEntity<>(appUsers, HttpStatus.OK);
     }
 }

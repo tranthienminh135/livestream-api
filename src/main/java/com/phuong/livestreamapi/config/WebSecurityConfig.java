@@ -52,7 +52,7 @@ public class WebSecurityConfig {
 
     Environment env;
 
-    private final String[] PUBLIC_URL = {"/register", "/public/**", "/login"};
+    private final String[] PUBLIC_URL = {"/register", "/public/**", "/login" , "/socket.io/**"};
     private final String[] IGNORE_URL = {};
 
     @Autowired
@@ -112,7 +112,7 @@ public class WebSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.debug(true).ignoring().requestMatchers(this.IGNORE_URL);
+        return web -> web.debug(false).ignoring().requestMatchers(this.IGNORE_URL);
     }
 
     private CorsConfigurationSource corsConfigurationSource() {

@@ -36,6 +36,10 @@ dependencies {
     implementation group: 'org.json', name: 'json', version: '20090211'
     // https://mvnrepository.com/artifact/com.auth0/java-jwt
     implementation group: 'com.auth0', name: 'java-jwt', version: '3.19.2'
+    // https://mvnrepository.com/artifact/io.socket/socket.io-server
+    implementation group: 'io.socket', name: 'socket.io-server', version: '4.1.2'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: '3.2.4'
 }
 
 tasks.named('test') {
